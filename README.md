@@ -1,0 +1,1 @@
+An application for managing information about products.
