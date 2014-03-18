@@ -1,4 +1,18 @@
 Programs::Application.routes.draw do
+  resources :answers
+
+  resources :questions
+
+  resources :types
+
+  resources :tabs
+
+  resources :programs
+
+  resources :countries
+
+  resources :years
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
