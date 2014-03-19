@@ -5,6 +5,7 @@ class ProgramsController < ApplicationController
   # GET /programs.json
   def index
     @programs = Program.all
+    authorize @programs
   end
 
   # GET /programs/1
@@ -15,6 +16,7 @@ class ProgramsController < ApplicationController
   # GET /programs/new
   def new
     @program = Program.new
+    authorize @program
   end
 
   # GET /programs/1/edit
@@ -25,6 +27,7 @@ class ProgramsController < ApplicationController
   # POST /programs.json
   def create
     @program = Program.new(program_params)
+    authorize @program
 
     respond_to do |format|
       if @program.save
@@ -65,6 +68,7 @@ class ProgramsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_program
       @program = Program.find(params[:id])
+      authorize @program
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

@@ -5,6 +5,7 @@ class YearsController < ApplicationController
   # GET /years.json
   def index
     @years = Year.all
+    authorize @years
   end
 
   # GET /years/1
@@ -15,6 +16,7 @@ class YearsController < ApplicationController
   # GET /years/new
   def new
     @year = Year.new
+    authorize @year
   end
 
   # GET /years/1/edit
@@ -25,6 +27,7 @@ class YearsController < ApplicationController
   # POST /years.json
   def create
     @year = Year.new(year_params)
+    authorize @year
 
     respond_to do |format|
       if @year.save
@@ -65,6 +68,7 @@ class YearsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_year
       @year = Year.find(params[:id])
+      authorize @year
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

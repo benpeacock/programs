@@ -5,6 +5,7 @@ class TabsController < ApplicationController
   # GET /tabs.json
   def index
     @tabs = Tab.all
+    authorize @tabs
   end
 
   # GET /tabs/1
@@ -15,6 +16,7 @@ class TabsController < ApplicationController
   # GET /tabs/new
   def new
     @tab = Tab.new
+    authorize @tab
   end
 
   # GET /tabs/1/edit
@@ -25,6 +27,7 @@ class TabsController < ApplicationController
   # POST /tabs.json
   def create
     @tab = Tab.new(tab_params)
+    authorize @tab
 
     respond_to do |format|
       if @tab.save
@@ -65,6 +68,7 @@ class TabsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_tab
       @tab = Tab.find(params[:id])
+      authorize @tab
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

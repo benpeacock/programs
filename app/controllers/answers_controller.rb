@@ -5,6 +5,7 @@ class AnswersController < ApplicationController
   # GET /answers.json
   def index
     @answers = Answer.all
+    authorize @answers
   end
 
   # GET /answers/1
@@ -15,6 +16,7 @@ class AnswersController < ApplicationController
   # GET /answers/new
   def new
     @answer = Answer.new
+    authorize @answer
   end
 
   # GET /answers/1/edit
@@ -25,6 +27,7 @@ class AnswersController < ApplicationController
   # POST /answers.json
   def create
     @answer = Answer.new(answer_params)
+    authorize @answer
 
     respond_to do |format|
       if @answer.save
@@ -65,6 +68,7 @@ class AnswersController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_answer
       @answer = Answer.find(params[:id])
+      authorize @answer
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

@@ -5,6 +5,7 @@ class CountriesController < ApplicationController
   # GET /countries.json
   def index
     @countries = Country.all
+    authorize @countries
   end
 
   # GET /countries/1
@@ -15,6 +16,7 @@ class CountriesController < ApplicationController
   # GET /countries/new
   def new
     @country = Country.new
+    authorize @country
   end
 
   # GET /countries/1/edit
@@ -25,6 +27,7 @@ class CountriesController < ApplicationController
   # POST /countries.json
   def create
     @country = Country.new(country_params)
+    authorize @country
 
     respond_to do |format|
       if @country.save
@@ -65,6 +68,7 @@ class CountriesController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_country
       @country = Country.find(params[:id])
+      authorize @country
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

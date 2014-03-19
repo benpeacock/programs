@@ -5,6 +5,7 @@ class TypesController < ApplicationController
   # GET /types.json
   def index
     @types = Type.all
+    authorize @types
   end
 
   # GET /types/1
@@ -15,6 +16,7 @@ class TypesController < ApplicationController
   # GET /types/new
   def new
     @type = Type.new
+    authorize @type
   end
 
   # GET /types/1/edit
@@ -25,6 +27,7 @@ class TypesController < ApplicationController
   # POST /types.json
   def create
     @type = Type.new(type_params)
+    authorize @type
 
     respond_to do |format|
       if @type.save
@@ -65,6 +68,7 @@ class TypesController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_type
       @type = Type.find(params[:id])
+      authorize @type
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
