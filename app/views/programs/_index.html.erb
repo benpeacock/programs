@@ -1,5 +1,8 @@
-<ul class="dropdown-menu">
-  <% @programs.each do |program| %>
-      <li><%= program.name %></li>
-  <% end %>
-</ul>
+<% programs = Program.where(country_id: @country.id) %>
+      <% if programs %>
+      <ul class="dropdown-menu">
+        <% programs.each do |program| %>
+          <li><%= link_to program.name, programs_path %></li>
+        <% end %>
+      </ul>
+      <% end %>
