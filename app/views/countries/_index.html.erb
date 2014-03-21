@@ -1,0 +1,13 @@
+<ul class="nav navbar-nav">
+  <% @countries.each do |country| %>
+      <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><%= country.name %> <b class="caret"></b></a>
+        <!-- <ul>
+        <% country.programs.each do |program| %>
+        <li><%= program.name %></li>
+        <% end %>
+        </ul> -->
+        <%# render "programs/index" locals: { country: @country } %>
+      </li>
+  <% end %>
+</ul>
