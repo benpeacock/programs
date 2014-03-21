@@ -7,7 +7,15 @@
         <li><%= program.name %></li>
         <% end %>
         </ul> -->
-        <%# render "programs/index" locals: { country: @country } %>
+        <%= country.id %>
+        <% programs = Program.where(country_id: country.id) %>
+        <% if programs %>
+          <% programs.each do |program| %>
+            <%= program.name %>
+          <% end %>
+        <% end %>
+
+        <%# render "programs/index" locals: { country_id: country_id } %>
       </li>
   <% end %>
 </ul>
