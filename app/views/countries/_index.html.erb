@@ -6,8 +6,10 @@
       <% if programs %>
         <ul class="dropdown-menu">
           <% programs.each do |program| %>
-            <li><%= link_to program.name %></li>
-            <%= render "years/index" %>
+            <li class="dropdown-submenu">
+              <a tabindex="-1" href="#"><%= program.name %></a>
+              <%= render "years/index" %>
+            </li>
           <% end %>
         </ul>
       <% end %>
