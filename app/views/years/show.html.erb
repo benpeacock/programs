@@ -1,14 +1,9 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Id:</strong>
-  <%= @year.id %>
-</p>
-
-<p>
-  <strong>Year:</strong>
-  <%= @year.year %>
-</p>
+<h2><%= @year.year %></h2>
+<div>
+	<% @questions.each do |question| %>
+		<div><%= question.question %></div>
+	<% end %>
+</div>
 
 <%= link_to 'Edit', edit_year_path(@year) %> |
 <%= link_to 'Back', years_path %>

@@ -11,6 +11,7 @@ class YearsController < ApplicationController
   # GET /years/1
   # GET /years/1.json
   def show
+    @questions = Question.all
   end
 
   # GET /years/new
