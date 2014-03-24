@@ -1,5 +1,5 @@
-<ul style="list-style-type: none">
+<ul>
   <% @years.each do |year| %>
-      <div class="col-md-1"><%= link_to year.year %></div>
+      <li><%= link_to year.year, year %></li>
   <% end %>
 </ul>

@@ -4,11 +4,12 @@
       <a href="#" class="dropdown-toggle" data-toggle="dropdown"><%= country.name %> <b class="caret"></b></a>
       <% programs = Program.where(country_id: country.id) %>
       <% if programs %>
-      <ul class="dropdown-menu">
-        <% programs.each do |program| %>
-          <li><%= link_to program.name, programs_path %></li>
-        <% end %>
-      </ul>
+        <ul class="dropdown-menu">
+          <% programs.each do |program| %>
+            <li><%= link_to program.name %></li>
+            <%= render "years/index" %>
+          <% end %>
+        </ul>
       <% end %>
     </li>
   <% end %>
