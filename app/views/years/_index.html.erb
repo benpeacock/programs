@@ -1,5 +1,5 @@
 <ul class="dropdown-menu">
   <% @years.each do |year| %>
-      <li><%= link_to year.year, year %></li>
+      <li><%= link_to year.year, program_year_path(program.id, year) %></li>
   <% end %>
 </ul>
