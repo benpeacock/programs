@@ -5,7 +5,6 @@
 <div>
 	<% @questions.each do |question| %>
 		<div>Question ID: <%= question.id %>, <%= question.question %></div>
-		<% answer = Answer.find_by program: @program, question: question, year: @year %>
-		<div><em><%= answer.inspect %></em></div>
+		<div><em><%= answer_for_question(question, @program, @year) %></em></div>
 	<% end %>
 </div>

@@ -21,9 +21,8 @@
   <div>
     <% @questions.each do |question| %>
     <div class="field">
-      <% answer = Answer.find_by program: @program, question: question, year: @year %>
       <div><%= f.label question.question %>, Question ID: <%= question.id %></div>
-      <div><em><%= answer.inspect %></em></div>
+      <div><em><%= answer_for_question(question, @program, @year) %></em></div>
     </div>
     <% end %>
   </div>
