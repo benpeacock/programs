@@ -1,4 +1,4 @@
-<%= form_for(@year) do |f| %>
+<%= form_for [@program, @year] do |f| %>
   <% if @year.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@year.errors.count, "error") %> prohibited this year from being saved:</h2>
@@ -11,14 +11,23 @@
     </div>
   <% end %>
 
+  <!-- Leaving as an example of a Rails-generated form field -->
   <div class="field">
     <%= f.label :id %><br>
     <%= f.number_field :id %>
   </div>
-  <div class="field">
-    <%= f.label :year %><br>
-    <%= f.number_field :year %>
+  <!-- /example -->
+  
+  <div>
+    <% @questions.each do |question| %>
+    <div class="field">
+      <% answer = Answer.find_by program: @program, question: question, year: @year %>
+      <div><%= f.label question.question %>, Question ID: <%= question.id %></div>
+      <div><em><%= answer.inspect %></em></div>
+    </div>
+    <% end %>
   </div>
+
   <div class="actions">
     <%= f.submit %>
   </div>

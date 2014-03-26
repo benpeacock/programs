@@ -1,9 +1,11 @@
-<h2><%= @year.year %></h2>
+<h2><%= @program.name %>, <%= @year.year %></h2>
+
+<h3>Year ID: <%= @year.id %></h3>
+<h3>Program ID: <%= @program.id %>, </h3>
 <div>
 	<% @questions.each do |question| %>
-		<div><%= question.question %></div>
+		<div>Question ID: <%= question.id %>, <%= question.question %></div>
+		<% answer = Answer.find_by program: @program, question: question, year: @year %>
+		<div><em><%= answer.inspect %></em></div>
 	<% end %>
 </div>
-
-<%= link_to 'Edit', edit_year_path(@year) %> |
-<%= link_to 'Back', years_path %>
