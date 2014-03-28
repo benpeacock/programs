@@ -4,7 +4,7 @@
 <h3>Program ID: <%= @program.id %>, </h3>
 <div>
 	<% @questions.each do |question| %>
-		<div>Question ID: <%= question.id %>, <%= question.question %></div>
+		<div>Question ID: <%= question.id %>, <%= question.question.html_safe %></div>
 		<div><em><%= answer_for_question(question, @program, @year) %></em></div>
 	<% end %>
 </div>
