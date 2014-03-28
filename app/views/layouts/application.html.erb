@@ -23,6 +23,22 @@
         </div>
     </ul>
 
+    <% if flash[:notice] %>
+      <div class="alert alert-success">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+        <%=flash[:notice] %>
+      </div>
+    <% elsif flash[:error] %>
+      <div class="alert alert-error">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+      </div>
+    <% elsif flash[:alert] %>
+      <div class="alert">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+          <%= flash[:alert] %>
+      </div>
+    <% end %>
+
     <% if current_user %>
       <nav class="navbar navbar-default" role="navigation">
         <div class="container-fluid">
@@ -47,22 +63,6 @@
           </div><!-- /.navbar-collapse -->
         </div><!-- /.container-fluid -->
       </nav>
-    <% end %>
-
-  	<% if flash[:notice] %>
-      <div class="alert alert-success">
-      	<button type="button" class="close" data-dismiss="alert">&times;</button>
-        <%=flash[:notice] %>
-      </div>
-    <% elsif flash[:error] %>
-    	<div class="alert alert-error">
-        <button type="button" class="close" data-dismiss="alert">&times;</button>
-      </div>
-    <% elsif flash[:alert] %>
-      <div class="alert">
-      	<button type="button" class="close" data-dismiss="alert">&times;</button>
-        	<%= flash[:alert] %>
-      </div>
     <% end %>
 
     <%= yield %>
