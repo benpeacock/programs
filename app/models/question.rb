@@ -4,8 +4,8 @@ class Question < ActiveRecord::Base
   has_many :answers
 
   	rails_admin do
-		list do
-			field :question
+		edit do
+			field :question, :ck_editor
 			field :type
 			field :tab
 			field :position

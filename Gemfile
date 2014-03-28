@@ -43,6 +43,7 @@ gem 'devise'
 gem 'bootstrap-sass', '~>3.1.1'
 gem 'pundit'
 gem 'rails_admin'
+gem 'ckeditor'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
