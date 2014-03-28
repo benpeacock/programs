@@ -2,7 +2,7 @@ class YearsController < ApplicationController
   before_action :set_year, only: [:show, :edit, :update, :destroy]
   before_action :set_years, only: [:index, :show, :edit]
   before_action :set_countries, only: [:show, :edit]
-  before_action :set_program, only: [:show, :edit]
+  before_action :set_program, only: [:show, :edit, :update]
   before_action :set_questions, only: [:show, :edit]
 
   # GET /years
@@ -48,7 +48,18 @@ class YearsController < ApplicationController
   def update
     respond_to do |format|
       if @year.update(year_params)
-        format.html { redirect_to @year, notice: 'Year was successfully updated.' }
+        params["questions"].each do |question|
+          question_id = question.first
+          answer_text = question.second[:answer]
+          answer = Answer.find_by program: @program, question_id: question_id, year: @year 
+          if answer
+            answer.answer = answer_text
+            answer.save
+          else
+            Answer.create(program: @program, question_id: question_id, year: @year, answer: answer_text)
+          end
+        end
+        format.html { redirect_to [@program, @year], notice: 'Year was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
@@ -83,7 +94,7 @@ class YearsController < ApplicationController
     end
 
     def set_program
-      @program = Program.find(params[:id])
+      @program = Program.find(params[:program_id])
     end
 
     def set_questions

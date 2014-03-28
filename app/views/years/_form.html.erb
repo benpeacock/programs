@@ -20,11 +20,11 @@
 
   <div>
     <% @questions.each do |question| %>
-    <%= render "answers/edit" %>
-    <!-- <div class="field">
+    <%#= render "answers/edit" %>
+    <div class="field">
       <div><%= f.label question.question %>, Question ID: <%= question.id %></div>
-      <div><em><%= answer_for_question(question, @program, @year) %></em></div>
-    </div> -->
+      <div><%= text_field_tag "questions[#{question.id}][answer]", answer_for_question(question, @program, @year)%></div>
+    </div> 
     <% end %>
   </div>
 
