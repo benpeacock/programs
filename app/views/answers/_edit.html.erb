@@ -1,32 +1,15 @@
-\<h1>Editing answer</h1>
+<% answer = Answer.find_by program: program, question: question, year: year %>
 
-<%= form_for(@answer) do |f| %>
-  <% if @answer.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@answer.errors.count, "error") %> prohibited this answer from being saved:</h2>
-
-      <ul>
-      <% @answer.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
+<%= form_for(answer) do |f| %>
   <div class="field">
-    <%= f.label :question_id %><br>
-    <%= f.text_field :question_id %>
-  </div>
-
-  <div class="field">
-    <%= f.label :answer %><br>
-    <%= f.text_field :answer %>
+    <div><%= f.text_field :answer %></div>
   </div>
 
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit 'Save', :class => 'btn' %>
+    <%= link_to [program, year], class: 'btn', :confirm => 'Cancel without saving?' do %>
+      Cancel
+    <% end %>
   </div>
 <% end %>
 
-<%= link_to 'Show', @answer %> |
-<%= link_to 'Back', answers_path %>

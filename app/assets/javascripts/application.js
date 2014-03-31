@@ -16,6 +16,7 @@
 //= require bootstrap
 //= require_tree .
 
+<<<<<<< HEAD
 function tabs(container){
 	$(container).find(".tabs").on("click", "li > a", function(e){
 		e.preventDefault();
@@ -30,3 +31,14 @@ function tabs(container){
 $(function() {
 	tabs("body");
 }); 
+=======
+$(document).ready(function(){
+  $(".toggleLink").click(function(event){
+  	event.preventDefault();
+  	var id_val = '#field_' + event.target.id;
+    $(id_val).show();
+    return false;
+  });
+});
+
+>>>>>>> Layout, scripts for click to edit working, but record not getting saved.
