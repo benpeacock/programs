@@ -21,20 +21,21 @@
 		</div>
 
 	<% @questions.each do |question| %>
-	<div style="margin: 0 0 20px 0;">
-		<div>
-			Question ID: <%= question.id %>, <%= question.question.html_safe %>
-		</div>
-		<% unless answer_for_question(question, @program, @year).blank? %>
+		<div style="margin: 0 0 20px 0;">
 			<div>
-				<em><%= answer_for_question(question, @program, @year) %></em>
-			<a href="" class="toggleLink" id="<%= question.id %>">Edit</a>
+				Question ID: <%= question.id %>, <%= question.question.html_safe %>
 			</div>
-		<% end %>
-		<div class="toggleField" id="field_<%= question.id %>" style="display:none;">
-			<%= render partial: "answers/edit", locals: { year: @year, program: @program, question: question } %>
+
+			<% unless answer_for_question(question, @program, @year).blank? %>
+				<div>
+					<em><%= raw answer_for_question(question, @program, @year) %></em>
+					<a href="" class="toggleLink" id="<%= question.id %>">Edit</a>
+				</div>
+			<% end %>
+			<div class="toggleField" id="field_<%= question.id %>" style="display:none;">
+				<%= render partial: "answers/edit", locals: { year: @year, program: @program, question: question } %>
+			</div>
 		</div>
-	</div>
 	<% end %>
 	
 </div>

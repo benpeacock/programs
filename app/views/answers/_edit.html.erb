@@ -2,7 +2,7 @@
 
 <%= form_for(answer, remote: true, format: :json) do |f| %>
   <div class="field">
-    <div><%= f.text_field :answer %></div>
+    <div><%= f.cktext_area :answer, :ckeditor => { :toolbar => 'mini'} %></div>
   </div>
 
   <div class="actions">

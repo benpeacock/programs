@@ -12,9 +12,12 @@
 //
 //= require jquery
 //= require jquery_ujs
-
+//= require turbolinks
 //= require bootstrap
+//= require ckeditor/override
+//= require ckeditor/init
 //= require_tree .
+
 
 function tabs(container){
 	$(container).find(".tabs").on("click", "li > a", function(e){
@@ -31,6 +34,8 @@ $(function() {
 	tabs("body");
 }); 
 
+
+// This script handles opening of individual answers for editing on Year#show
 $(document).ready(function(){
   $(".toggleLink").click(function(event){
   	event.preventDefault();
