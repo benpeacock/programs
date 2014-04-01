@@ -12,11 +12,10 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
+
 //= require bootstrap
 //= require_tree .
 
-<<<<<<< HEAD
 function tabs(container){
 	$(container).find(".tabs").on("click", "li > a", function(e){
 		e.preventDefault();
@@ -31,7 +30,7 @@ function tabs(container){
 $(function() {
 	tabs("body");
 }); 
-=======
+
 $(document).ready(function(){
   $(".toggleLink").click(function(event){
   	event.preventDefault();
@@ -41,4 +40,3 @@ $(document).ready(function(){
   });
 });
 
->>>>>>> Layout, scripts for click to edit working, but record not getting saved.

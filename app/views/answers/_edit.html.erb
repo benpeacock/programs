@@ -1,13 +1,13 @@
 <% answer = Answer.find_by program: program, question: question, year: year %>
 
-<%= form_for(answer, remote: true) do |f| %>
+<%= form_for(answer, remote: true, format: :json) do |f| %>
   <div class="field">
     <div><%= f.text_field :answer %></div>
   </div>
 
   <div class="actions">
     <%= f.submit 'Save', :class => 'btn' %>
-    <%= link_to [program, year], class: 'btn', :confirm => 'Cancel without saving?' do %>
+    <%= link_to [program, year], class: 'btn',  :confirm => 'Cancel without saving?' do %>
       Cancel
     <% end %>
   </div>
