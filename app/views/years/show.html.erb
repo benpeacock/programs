@@ -24,11 +24,11 @@
 	<div style="margin: 0 0 20px 0;">
 		<div>
 			Question ID: <%= question.id %>, <%= question.question.html_safe %>
-			<a href="" class="toggleLink" id="<%= question.id %>">Edit</a>
 		</div>
 		<% unless answer_for_question(question, @program, @year).blank? %>
 			<div>
 				<em><%= answer_for_question(question, @program, @year) %></em>
+			<a href="" class="toggleLink" id="<%= question.id %>">Edit</a>
 			</div>
 		<% end %>
 		<div class="toggleField" id="field_<%= question.id %>" style="display:none;">
