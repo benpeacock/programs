@@ -12,7 +12,8 @@
 	<% @tabs.each do |tab| %>
 		<div class="tab" id="<%= tab.name %>">
 			<p><%= tab.name %></p>
-			<% @questions.each do |question| %>
+			<% questions = Question.where(tab_id: tab.id) %>
+			<% questions.each do |question| %>
 				<div>Question ID: <%= question.id %>, <%= question.question.html_safe %></div>
 				<div><em><%= answer_for_question(question, @program, @year) %></em></div>
 			<% end %>
