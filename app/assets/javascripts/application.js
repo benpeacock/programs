@@ -34,7 +34,6 @@ $(function() {
 	tabs("body");
 }); 
 
-
 // This script handles opening of individual answers for editing on Year#show
 $(document).ready(function(){
   $(".toggleLink").click(function(event){
@@ -44,4 +43,3 @@ $(document).ready(function(){
     return false;
   });
 });
-
