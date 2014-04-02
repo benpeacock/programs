@@ -28,7 +28,7 @@
 
 			<% unless answer_for_question(question, @program, @year).blank? %>
 				<div>
-					<em><%= raw answer_for_question(question, @program, @year) %></em>
+					<em><%= simple_format h answer_for_question(question, @program, @year) %></em>
 					<a href="" class="toggleLink" id="<%= question.id %>">Edit</a>
 				</div>
 			<% end %>
