@@ -6,10 +6,27 @@
   </div>
 
   <div class="actions">
-    <%= f.submit 'Save', :class => 'btn' %>
-    <%= link_to [program, year], class: 'btn',  :confirm => 'Cancel without saving?' do %>
+    <%= f.submit 'Save', :class => 'btn btn-default' %>
+    <%= link_to [program, year], class: 'btn btn-default',  :confirm => 'Cancel without saving?' do %>
       Cancel
     <% end %>
+    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+    Copy Previous <span class="caret"></span>
+  	</button>
+    <ul class="dropdown-menu" role="menu">
+    	<% @years.each do |year| %>
+    		<li><a href="" class="copyPrev" remote="true"><%= year.year %></a></li>
+    	<% end %>
+  	</ul>
+  	<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+    Copy Other <span class="caret"></span>
+  	</button>
+  	<ul class="dropdown-menu" role="menu">
+  		<% programs = Program.where("country_id = ?", @program.country_id) %>
+    	<% programs.each do |program| %>
+    		<li><a href="" class="copyOther" remote="true"><%= program.name %></a></li>
+    	<% end %>
+  	</ul>
   </div>
 <% end %>
 
