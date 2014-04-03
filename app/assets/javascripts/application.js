@@ -42,9 +42,9 @@ $(document).ready(function(){
   });
 });
 
-$(document).ready(function(){
-  $(".save").click(function(event){
-    $("div.toggleField").hide();
-    return false;
-  });
-});
+// $(document).ready(function(){
+//   $(".save").click(function(event){
+//     $("div.toggleField").hide();
+//     return false;
+//   });
+// });
