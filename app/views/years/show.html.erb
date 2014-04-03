@@ -3,37 +3,13 @@
 <h3>Year ID: <%= @year.id %></h3>
 <h3>Program ID: <%= @program.id %>, </h3>
 <div>
-<<<<<<< HEAD
 
 	<ul class="tabs">
 		<% @tabs.each do |tab| %>
 			<li><a href="#<%= tab.name %>"><%= tab.name %></a></li>
 		<% end %>
 	</ul>
-
-	<% @tabs.each do |tab| %>
-		<div class="tab" id="<%= tab.name %>">
-			<p><%= tab.name %></p>
-			<% questions = Question.where(tab_id: tab.id) %>
-			<% questions.each do |question| %>
-				<div>Question ID: <%= question.id %>, <%= question.question.html_safe %></div>
-				<div><em><%= answer_for_question(question, @program, @year) %></em></div>
-			<% end %>
-		</div>
-
-	<% @questions.each do |question| %>
-		<div style="margin: 0 0 20px 0;">
-			<div>
-				Question ID: <%= question.id %>, <%= question.question.html_safe %>
-			</div>
-=======
->>>>>>> partway throughb adding tabs
-
-	<ul class="tabs">
-		<% @tabs.each do |tab| %>
-			<li><a href="#<%= tab.name %>"><%= tab.name %></a></li>
-		<% end %>
-	</ul>
+	
 	<% @tabs.each do |tab| %>
 		<div class="tab" id="<%= tab.name %>">
 			<% questions = Question.where(tab_id: tab.id) %>
