@@ -47,8 +47,7 @@ class AnswersController < ApplicationController
       if @answer.update(answer_params)
         flash[:notice] = "Answer updated"
         format.html { redirect_to [@program, @year], notice: 'Answer was successfully updated.' }
-        format.json { render json: @answer, status: :ok }
-
+        format.json { render json: @answer, status: :ok}
       else
         format.html { render action: 'edit' }
         format.json { render json: @answer.errors, status: :unprocessable_entity }

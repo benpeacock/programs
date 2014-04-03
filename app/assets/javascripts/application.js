@@ -41,3 +41,10 @@ $(document).ready(function(){
     return false;
   });
 });
+
+$(document).ready(function(){
+  $(".save").click(function(event){
+    $("div.toggleField").hide();
+    return false;
+  });
+});
