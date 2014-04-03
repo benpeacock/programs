@@ -2,7 +2,7 @@
 
 <%= form_for(answer, remote: true, format: :json) do |f| %>
   <div class="field">
-    <div><%= f.text_area :answer  %></div>
+    <div><%= f.text_area :answer, id: dom_id(answer)  %></div>
   </div>
 
   <div class="actions">
@@ -15,26 +15,15 @@
     <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
     Copy Previous <span class="caret"></span>
   	</button>
-    <ul class="dropdown-menu" role="menu">
+    <ul class="dropdown-menu" role="menu" id="year-menu-<%=answer.id%>">
     	<% @years.each do |year| %>
     		<li>
-    			<a href="" class="copyPrev" remote="true"><%= year.year %></a>
+    			<%= link_to year.year, answer_for_params_answer_path(answer, year_id: year, program_id: program, question_id: question), class: "copyPrev", remote:true %>
     		</li>
     	<% end %>
   	</ul>
 
-  	<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-    Copy Other <span class="caret"></span>
-  	</button>
-  	<ul class="dropdown-menu" role="menu">
-  		<% programs = Program.where("country_id = ?", @program.country_id) %>
-    	<% programs.each do |program| %>
-    		<li>
-    			<a href="" class="copyOther" remote="true"><%= program.name %></a>
-    		</li>
-    	<% end %>
-  	</ul>
-
+  	
   </div>
 <% end %>
 

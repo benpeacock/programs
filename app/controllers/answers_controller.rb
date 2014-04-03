@@ -64,6 +64,15 @@ class AnswersController < ApplicationController
     end
   end
 
+   def answer_for_params
+    @answer_id = params[:id]
+    answer = Answer.find_by program_id: params[:program_id], question_id: params[:question_id], year_id: params[:year_id]
+    @answer_text = answer.blank? ? "This is my answer. There are many like it, but this one is mine." : answer.answer
+    Rails.logger.info ">>>>> #{@answer_id}"
+    Rails.logger.info ">>>>>> #{@answer_text.inspect}"
+  end
+
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_answer
