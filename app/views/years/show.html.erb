@@ -36,7 +36,8 @@
 	</ul>
 	<% @tabs.each do |tab| %>
 		<div class="tab" id="<%= tab.name %>">
-			<% @questions.each do |question| %>
+			<% questions = Question.where(tab_id: tab.id) %>
+			<% questions.each do |question| %>
 				<div style="margin: 0 0 20px 0;">
 					<div>
 						Question ID: <%= question.id %>, <%= question.question.html_safe %>
