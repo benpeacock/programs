@@ -3,6 +3,7 @@
 <h3>Year ID: <%= @year.id %></h3>
 <h3>Program ID: <%= @program.id %>, </h3>
 <div>
+<<<<<<< HEAD
 
 	<ul class="tabs">
 		<% @tabs.each do |tab| %>
@@ -25,16 +26,33 @@
 			<div>
 				Question ID: <%= question.id %>, <%= question.question.html_safe %>
 			</div>
+=======
+>>>>>>> partway throughb adding tabs
 
-			<% unless answer_for_question(question, @program, @year).blank? %>
-				<div>
-					<em><%= simple_format h answer_for_question(question, @program, @year) %></em>
-					<a href="" class="toggleLink" id="<%= question.id %>">Edit</a>
+	<ul class="tabs">
+		<% @tabs.each do |tab| %>
+			<li><a href="#<%= tab.name %>"><%= tab.name %></a></li>
+		<% end %>
+	</ul>
+	<% @tabs.each do |tab| %>
+		<div class="tab" id="<%= tab.name %>">
+			<% @questions.each do |question| %>
+				<div style="margin: 0 0 20px 0;">
+					<div>
+						Question ID: <%= question.id %>, <%= question.question.html_safe %>
+					</div>
+
+					<% unless answer_for_question(question, @program, @year).blank? %>
+						<div>
+							<em><%= simple_format h answer_for_question(question, @program, @year) %></em>
+							<a href="" class="toggleLink" id="<%= question.id %>">Edit</a>
+						</div>
+					<% end %>
+					<div class="toggleField" id="field_<%= question.id %>" style="display:none;">
+						<%= render partial: "answers/edit", locals: { year: @year, program: @program, question: question } %>
+					</div>
 				</div>
 			<% end %>
-			<div class="toggleField" id="field_<%= question.id %>" style="display:none;">
-				<%= render partial: "answers/edit", locals: { year: @year, program: @program, question: question } %>
-			</div>
 		</div>
 	<% end %>
 	

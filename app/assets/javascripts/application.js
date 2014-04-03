@@ -15,7 +15,6 @@
 //= require bootstrap
 //= require_tree .
 
-
 function tabs(container){
 	$(container).find(".tabs").on("click", "li > a", function(e){
 		e.preventDefault();
@@ -40,4 +39,3 @@ $(document).ready(function(){
     return false;
   });
 });
-
