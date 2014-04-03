@@ -18,14 +18,14 @@
 					<div>
 						Question ID: <%= question.id %>, <%= question.question.html_safe %>
 					</div>
-
-					<% unless answer_for_question(question, @program, @year).blank? %>
-						<div>
-							<em><%= simple_format h answer_for_question(question, @program, @year) %></em>
+					<% answer = answer_for_question(question, @program, @year) %>
+					<% unless answer.blank? %>
+						<div id="static_answer_<%= answer.id %>">
+							<%= simple_format h answer.answer %>
 							<a href="" class="toggleLink" id="<%= question.id %>">Edit</a>
 						</div>
 					<% end %>
-					<div class="toggleField" id="field_<%= question.id %>" style="display:none;">
+					<div class="toggleField" id="field_<%= question.id %>" style="display: none;">
 						<%= render partial: "answers/edit", locals: { year: @year, program: @program, question: question } %>
 					</div>
 				</div>

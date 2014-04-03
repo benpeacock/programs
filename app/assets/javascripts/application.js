@@ -15,6 +15,7 @@
 //= require bootstrap
 //= require_tree .
 
+// These scripts handle tabs in year#show
 function tabs(container){
 	$(container).find(".tabs").on("click", "li > a", function(e){
 		e.preventDefault();
@@ -28,7 +29,7 @@ function tabs(container){
  
 $(function() {
 	tabs("body");
-}); 
+});
 
 // This script handles opening of individual answers for editing on Year#show
 $(document).ready(function(){
@@ -36,6 +37,7 @@ $(document).ready(function(){
   	event.preventDefault();
   	var id_val = '#field_' + event.target.id;
     $(id_val).show();
+    $("div.toggleField").not(id_val).hide();
     return false;
   });
 });
