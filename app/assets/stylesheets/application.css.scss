@@ -92,7 +92,38 @@
 .nav {
     margin-top: 5px;
 }
-/* End nav menu styles */
+
+/* Begin styles for tabs to display program information */
+.tabs {
+        overflow: hidden;
+    &>li {
+        display: inline-block;
+        vertical-align: top;
+            &>a {
+                display: inline-block;
+                text-decoration: none;
+                color: #272727;
+                padding: 10px 15px;
+                margin-right: 5px;
+                border-radius: 5px 5px 0 0;
+                background: #fff;
+                position: relative;
+                z-index: 10;
+                &.active {
+                    background: #f1f1f1;
+            }
+        }
+    }
+}
+.tab {
+    display: none;
+    margin-top: -1px;
+    position: relative;
+    z-index: 5;
+    &.active {
+        display: block;
+    }
+}/* End nav menu styles */
 
 /* Begin styles for tabs to display program information */
 .tabs {
