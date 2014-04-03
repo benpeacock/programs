@@ -12,10 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
-
 //= require bootstrap
-//= require ckeditor/override
-//= require ckeditor/init
 //= require_tree .
 
 
@@ -43,3 +40,4 @@ $(document).ready(function(){
     return false;
   });
 });
+
