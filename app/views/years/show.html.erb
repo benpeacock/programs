@@ -14,7 +14,7 @@
 		<div class="tab" id="<%= tab.name %>">
 			<% questions = Question.where(tab_id: tab.id) %>
 			<% questions.each do |question| %>
-				<div style="margin: 0 0 20px 0;">
+				<div class="row answer-partial">
 					<div>
 						Question ID: <%= question.id %>, <%= question.question.html_safe %>
 					</div>
