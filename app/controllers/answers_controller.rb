@@ -16,7 +16,7 @@ class AnswersController < ApplicationController
   # GET /answers/new
   def new
     @answer = Answer.new
-    authorize @answer
+    #authorize @answer
   end
 
   # GET /answers/1/edit
@@ -27,7 +27,7 @@ class AnswersController < ApplicationController
   # POST /answers.json
   def create
     @answer = Answer.new(answer_params)
-    authorize @answer
+    #authorize @answer
 
     respond_to do |format|
       if @answer.save
