@@ -37,7 +37,7 @@
       Copy Other <span class="caret"></span>
       </button>
 
-      <ul class="dropdown-menu program-menu" role="menu" id="program-menu-<%= program.id %>">
+      <ul class="dropdown-menu program-menu" role="menu" id="program-menu-<%= answer.id %>">
         <% programs = Program.where("country_id = ?", @program.country_id) %>
         <% programs.each do |program| %>
           <li>
