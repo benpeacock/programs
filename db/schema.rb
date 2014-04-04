@@ -11,10 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140328193559) do
+ActiveRecord::Schema.define(version: 20140404172345) do
 
   create_table "answers", force: true do |t|
-    t.string   "answer"
+    t.text     "answer",      limit: 10000
     t.integer  "question_id"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -53,13 +53,10 @@ ActiveRecord::Schema.define(version: 20140328193559) do
     t.integer  "country_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "year_id"
   end
 
-  add_index "programs", ["year_id"], name: "index_programs_on_year_id"
-
   create_table "questions", force: true do |t|
-    t.string   "question"
+    t.text     "question",   limit: 3000
     t.integer  "tab_id"
     t.integer  "type_id"
     t.integer  "position"
@@ -69,19 +66,6 @@ ActiveRecord::Schema.define(version: 20140328193559) do
 
   add_index "questions", ["tab_id"], name: "index_questions_on_tab_id"
   add_index "questions", ["type_id"], name: "index_questions_on_type_id"
-
-  create_table "rich_rich_files", force: true do |t|
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.string   "rich_file_file_name"
-    t.string   "rich_file_content_type"
-    t.integer  "rich_file_file_size"
-    t.datetime "rich_file_updated_at"
-    t.string   "owner_type"
-    t.integer  "owner_id"
-    t.text     "uri_cache"
-    t.string   "simplified_type",        default: "file"
-  end
 
   create_table "tabs", force: true do |t|
     t.string   "name"
