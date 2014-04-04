@@ -157,10 +157,20 @@
     }
 }
 
+
+/* Styling the drop-down year menu that appear below Copy Previous */
+
 .actions {
     position: relative;
 }
 
 .dropdown-menu {
     left: 130px;
+}
+
+
+/* Styling the text area field for answer input */
+.answer-area {
+    height: 5em;
+    width: 50em;
 }

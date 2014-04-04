@@ -43,7 +43,7 @@ $(document).ready(function(){
 });
 
 // $(document).ready(function(){
-//   $(".save").click(function(event){
+//   $(".cancel").click(function(event){
 //     $("div.toggleField").hide();
 //     return false;
 //   });

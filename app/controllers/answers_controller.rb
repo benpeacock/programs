@@ -45,9 +45,8 @@ class AnswersController < ApplicationController
   def update
     respond_to do |format|
       if @answer.update(answer_params)
-        flash[:notice] = "Answer updated"
         format.html { redirect_to [@program, @year], notice: 'Answer was successfully updated.' }
-        format.js  
+        format.js
         format.json { render json: @answer, status: :ok}
       else
         format.html { render action: 'edit' }

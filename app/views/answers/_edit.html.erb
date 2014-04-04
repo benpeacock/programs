@@ -1,7 +1,7 @@
 <% answer = Answer.find_by program: program, question: question, year: year %>
 <%= form_for(answer, remote: true, format: :js) do |f| %>
   <div class="field">
-    <div><%= f.text_area :answer, id: dom_id(answer)  %></div>
+    <div><%= f.text_area :answer, id: dom_id(answer), class: 'answer-area'  %></div>
   </div>
 
   <div class="actions">
