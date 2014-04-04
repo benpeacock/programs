@@ -1,4 +1,5 @@
 <% answer = Answer.find_by program: program, question: question, year: year %>
+<% unless answer.blank? %>
 <%= form_for(answer, remote: true, format: :js) do |f| %>
   <div class="field">
     <div><%= f.text_area :answer, id: dom_id(answer), class: 'answer-area'  %></div>
@@ -40,7 +41,7 @@
         <% programs = Program.where("country_id = ?", @program.country_id) %>
         <% programs.each do |program| %>
           <li>
-            <%= link_to program.name, program_path, class: "copyOther", remote: true %>
+            <%= link_to program.name, answer_for_params_answer_path(answer, year_id: year, program_id: program, question_id: question), class: "copyOther", remote: true %>
           </li>
         <% end %>
       </ul>
@@ -48,6 +49,6 @@
     </div>
 
   </div>
-
+<% end %>
 <% end %>
 
