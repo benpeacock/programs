@@ -17,7 +17,7 @@
 					</div>
 					<% answer = answer_for_question(question, @program, @year) %>
 					<% if answer.blank? %>
-					<div id="static_answer_<%= @answer.id %>">
+					<div id="static_answer_<%= question.id %>">
 							<%= simple_format h @answer.answer %>
 						<a href="" class="toggleLink" id="<%= question.id %>">New</a>
 						<div class="toggleField" id="field_<%= question.id %>" style="display: none;">
