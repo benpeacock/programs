@@ -6,22 +6,19 @@
     </div>
 
     <div class="actions">
-      <div class="span-4">
-      <%= f.submit 'Save', :class => 'btn btn-default lineup' %>
-    </div>
-
-    <div class="span-4">
-      <%= link_to [program, year], class: 'btn btn-default cancel lineup',  :confirm => 'Cancel without saving?' do %>
-        Cancel
-      <% end %>
-    </div>
+      <div>
+        <%= f.submit 'Save', :class => 'btn btn-default lineup' %>
+      </div>
 
       <div>
-
+        <%= link_to [program, year], class: 'btn btn-default cancel lineup',  :confirm => 'Cancel without saving?' do %>
+          Cancel
+        <% end %>
+      </div>
+      <div>
         <button type="button" class="btn btn-default dropdown-toggle lineup" data-toggle="dropdown">
         Copy Previous <span class="caret"></span>
       	</button>
-
         <ul class="dropdown-menu year-menu" role="menu" id="year-menu-<%=answer.id%>">
         	<% @years.each do |year| %>
         		<li>
@@ -29,14 +26,11 @@
         		</li>
         	<% end %>
       	</ul>
-
       </div>
       <div>
-
         <button type="button" class="btn btn-default dropdown-toggle lineup" data-toggle="dropdown">
-        Copy Other <span class="caret"></span>
+          Copy Other <span class="caret"></span>
         </button>
-
         <ul class="dropdown-menu program-menu" role="menu" id="program-menu-<%= answer.id %>">
           <% programs = Program.where("country_id = ?", @program.country_id) %>
           <% programs.each do |program| %>
@@ -45,9 +39,7 @@
             </li>
           <% end %>
         </ul>
-
       </div>
-
     </div>
   <% end %>
 <% end %>
