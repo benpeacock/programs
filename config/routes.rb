@@ -5,6 +5,7 @@ Programs::Application.routes.draw do
   devise_for :users
   resources :answers do
     get 'answer_for_params', on: :member
+    get 'new_for_params', on: :member
   end
 
   resources :questions
