@@ -1,18 +1,9 @@
-<h1>New answer</h1>
-
-<%= program %>
-<%= question %>
-<%= year %>
-
-<%# answer = Answer.new(question_id: question.id) %>
-
-  <%= form_for(@answer, remote: true, format: :js) do |f| %>
-  	<%# hidden_field_tag :question_id, question.id %>
+<%= form_for(@answer, remote: true, format: :js) do |f| %>
   	<%= f.hidden_field :question_id, :value => question.id %>
   	<%= f.hidden_field :program_id, :value => program.id %>
   	<%= f.hidden_field :year_id, :value => year.id %>
     <div class="field">
-      <div><%= f.text_area :answer  %></div>
+      <div><%= f.text_area :answer, id: dom_id(@answer), class: 'answer-area'  %></div>
     </div>
 
     <div class="actions">
@@ -20,6 +11,5 @@
         <%= f.submit 'Save', :class => 'btn btn-default lineup' %>
       </div>
     </div>
-
 <% end %>
 
