@@ -15,7 +15,7 @@ class AnswersController < ApplicationController
 
   # GET /answers/new
   def new
-    @answer = Answer.new
+    @answer = Answer.new(answer_params)
     #authorize @answer
   end
 
@@ -30,9 +30,10 @@ class AnswersController < ApplicationController
     #authorize @answer
 
     respond_to do |format|
-      if @answer.save
+      if @answer.save(answer_params)
         format.html { redirect_to @answer, notice: 'Answer was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @answer }
+        format.js
+        format.json { render json: @answer, status: :ok}
       else
         format.html { render action: 'new' }
         format.json { render json: @answer.errors, status: :unprocessable_entity }
@@ -83,6 +84,6 @@ class AnswersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def answer_params
-      params.require(:answer).permit(:answer, :question_id)
+      params.require(:answer).permit(:answer, :question_id, :program_id, :year_id)
     end
 end
