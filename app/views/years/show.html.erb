@@ -17,10 +17,13 @@
 					</div>
 					<% answer = answer_for_question(question, @program, @year) %>
 					<% if answer.blank? %>
+					<div id="static_answer_<%= @answer.id %>">
+							<%= simple_format h @answer.answer %>
 						<a href="" class="toggleLink" id="<%= question.id %>">New</a>
 						<div class="toggleField" id="field_<%= question.id %>" style="display: none;">
 							<%= render partial: "answers/new", locals: { year: @year, program: @program, question: question } %>
 						</div>
+					</div>
 					<% else %>
 						<div id="static_answer_<%= answer.id %>">
 							<%= simple_format h answer.answer %>
