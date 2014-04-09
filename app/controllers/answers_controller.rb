@@ -71,8 +71,6 @@ class AnswersController < ApplicationController
     @answer_id = params[:id]
     answer = Answer.find_by program_id: params[:program_id], question_id: params[:question_id], year_id: params[:year_id]
     @answer_text = answer.blank? ? "This value does not exist." : answer.answer
-    Rails.logger.info ">>>>> #{@answer_id}"
-    Rails.logger.info ">>>>>> #{@answer_text.inspect}"
   end
 
    def new_for_params

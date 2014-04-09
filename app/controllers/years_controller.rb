@@ -50,17 +50,6 @@ class YearsController < ApplicationController
   def update
     respond_to do |format|
       if @year.update(year_params)
-        params["questions"].each do |question|
-          question_id = question.first
-          answer_text = question.second[:answer]
-          answer = Answer.find_by program: @program, question_id: question_id, year: @year 
-          if answer
-            answer.answer = answer_text
-            answer.save
-          else
-            Answer.create(program: @program, question_id: question_id, year: @year, answer: answer_text)
-          end
-        end
         format.html { redirect_to [@program, @year], notice: 'Year was successfully updated.' }
         format.json { head :no_content }
       else
