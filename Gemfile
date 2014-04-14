@@ -38,6 +38,10 @@ group :development, :test do
   gem 'shoulda-matchers'
 end
 
+group :staging, :production do
+  gem 'mysql2'
+end
+
 gem 'faker'
 gem 'devise'
 gem 'bootstrap-sass', '~>3.1.1'
