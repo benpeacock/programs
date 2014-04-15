@@ -52,8 +52,6 @@ gem 'bootstrap-sass', '~>3.1.1'
 gem 'pundit'
 gem 'rails_admin'
 gem 'ckeditor'
-gem 'capistrano', '~> 3.1.0'
-gem 'capistrano-rails', '~> 1.1'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
